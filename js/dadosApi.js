@@ -20,27 +20,37 @@ let api = {
 
     // chamada das funções
         mudarData(dataAtual)
-
-
-// carregar a api
-fetch(link(api))
-.then((response) => {
-    return response.json()
-}).then((data) => {
-    console.log(data)
-})
-.catch((erro) => {
-    console.log(erro)
-})
-
 // funções
+    botão.addEventListener('click', ()=>{
+        cidade = buscar.value
+        montarLink(api, cidade)
+    })
     // montar link
-    function link(api, cidade = 'açu'){
-        let link = `${api.base}/weather?q=${cidade}&lang=${api.linguagem}&units=${api.unidade}&appid=${api.chave}`
-        return link
-    }   
+    function montarLink(api, cidade)
+    {
+        link = `${api.base}/weather?q=${cidade}&lang=${api.linguagem}&units=${api.unidade}&appid=${api.chave}`
+        fetch(link)
+        .then((response) => {
+        return response.json()
+        }).then((data) => {
+            console.log(data)
+            // mudar valores da tela inicial
+            nomeCidade.innerHTML = `${data.name}, ${data.sys.country}`
+            graus.innerHTML = `${data.main.temp}°`
+            clima.innerHTML = data.weather[0].description
+            minMax.innerHTML =`Min: ${data.main.temp_min} Max: ${data.main.temp_max}`
+            humidade.innerHTML = `Humidade: ${data.main.humidity}%`
+            sTermica.innerHTML = `sensação térmica: ${data.main.feels_like}`
+        })
+        .catch((erro) => {
+            console.log(erro)
+            alert('cidade não encontrada')
+        })
+
+    }
     // modificar data 
-    function mudarData(data){
+    function mudarData(data)
+    {
         let date = new Date()
         let dia = String(date.getDate()).padStart(2, '0')
         let mes = String(date.getMonth() + 1).padStart(2, '0')
