@@ -1,0 +1,67 @@
+:root{
+    --cor-de-fundo: #636573;
+    --cor-container: #323240;
+    --cor3: #BFA7F2;
+    --cor4: #67733D;
+    --cor5: #4759DE;
+}
+body{
+    padding: 0px;
+    margin: 0px;
+    background-color: var(--cor-de-fundo);
+    color:white;
+}
+
+/* estilo das divs*/
+.container{
+    background-color: var(--cor-container);
+    max-width: 500px;
+    height: auto;
+    margin: 180px auto 0 auto;
+    border: 1px solid black;
+    border-radius: 30px;
+    text-align: center;
+}
+.cabeçalho{
+    min-height: 40px;
+}
+.temperatura{
+    height:150px;
+    width:150px;
+    border-radius: 20px;
+    background-color: #4759DE;
+    margin: 15px auto 15px auto;
+    font-size: 30px;
+    line-height: 50px;
+}
+.temperatura .data{
+    font-size: 15px;
+}
+.propriedades{
+    min-height: 50px;
+}
+.propriedades .clima{
+    font-size: 20px;
+}
+.propriedades .min-max{
+    line-height: 25px;
+}
+.rodape{
+    margin: 10px auto 10px auto;
+}
+
+/* estilo do input/button */
+#buscar{
+    height: 26px;
+    width: 200px;
+    border: 0px;
+    margin-top: 5px;
+}
+textarea:focus, input:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+button{
+    height: 29.5px;
+    width: 30px;
+}
